@@ -76,11 +76,15 @@ SIMPLE_JWT = {
 
 }
 
-CORS_ALLOWED_ORIGINS = ["https://your-frontend.vercel.app"]
+CORS_ALLOWED_ORIGINS = [
+    "https://coffee-frontend-liart.vercel.app",
+]
 
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+CSRF_TRUSTED_ORIGINS = [
+    "https://coffee-frontend-liart.vercel.app",
+]
 
-CORS_ALLOW_CREDENTIALS = os.getenv("CORS_ALLOW_CREDENTIALS", "True") == "True"
+CORS_ALLOW_CREDENTIALS = True
 
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
