@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .serializer import *
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 
@@ -58,6 +58,7 @@ def get_cart(request):
 
 
 @api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
 def delete_items(request, pk):
       delete = CartItems.objects.get(id = pk)
       delete.delete()
@@ -80,6 +81,7 @@ def create_category(request):
 
 
 @api_view(["GET"])
+@permission_classes([AllowAny])
 def get_menu(request, slug):
       menu = get_object_or_404(Category, slug=slug)
       serializer = CategorySerializer(menu)
@@ -97,7 +99,7 @@ def get_category(request):
 @api_view(["DELETE"])
 @permission_classes([IsAuthenticated])
 def remove_menu(request, pk):
-      rem_menu = Menu.objects.all(id = pk)
+      rem_menu = Menu.objects.get(id = pk)
       rem_menu.delete()
       return Response("Deleted!")
 
