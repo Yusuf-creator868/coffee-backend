@@ -5,6 +5,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+
+
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
@@ -104,3 +107,9 @@ def remove_menu(request, pk):
       return Response("Deleted!")
 
 # Create your views here.
+
+
+def home(request):
+    return JsonResponse({"status": "Backend is running 🚀"})
+
+
