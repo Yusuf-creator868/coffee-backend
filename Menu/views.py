@@ -73,7 +73,7 @@ def delete_items(request, pk):
 
 
 @api_view(["POST"])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def create_category(request):
       serializer = CategoryNamesSerializer(data = request.data)
       if serializer.is_valid():
