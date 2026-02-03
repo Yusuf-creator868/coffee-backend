@@ -93,7 +93,7 @@ def get_menu(request, slug):
 
 
 @api_view(["GET"])
-# @permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_category(request):
       category = Category.objects.all()
       serializers = CategoryNamesSerializer(category, many = True)
