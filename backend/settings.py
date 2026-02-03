@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework',
     "corsheaders",
     'Menu',
-    "django.contrib.staticfiles",
     'rest_framework_simplejwt.token_blacklist',
 ]
 
