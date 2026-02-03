@@ -83,7 +83,7 @@ def is_authenticated(request):
 
 
 @api_view(["POST"])
-# @permission_classes([AllowAny])
+@permission_classes([AllowAny])
 def register(request):
     serializer = UserRegistrationSerializer(data = request.data)
     if serializer.is_valid():
