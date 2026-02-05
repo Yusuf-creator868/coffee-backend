@@ -2,8 +2,11 @@ from .models import *
 from rest_framework import serializers
 
 class MenuSerializer(serializers.ModelSerializer):
+     choose = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all()
+    )
 
-      class Meta:
+     class Meta:
             model = Menu
             fields = ['id', 'choose', 'image', 'name', 'cost']
 
